@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<title>Axom Decor Thread</title>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	</head>
+
+	<body>
+
+		<div id="view">
+
+			<div id="banner">
+				<div id="header">
+					<h1>Axom Decor Thread</h1>
+					<p>
+						Handcrafted Mekhela Sador & traditional Assamese textiles with a modern touch.
+					</p>
+				</div>
+
+				<div id="ctas">
+					<a href="">
+						<button class="cta">
+							<i class="bi bi-download"></i>
+							Download Brochure
+						</button>
+					</a>
+					<a href="">
+						<button class="cta">
+							<i class="bi bi-copy"></i>
+							info@axomdecorthread.in
+						</button>
+					</a>
+				</div>
+
+				<div id="socials">
+					<div class="icons">
+						<a href=""><button class="icon"><i class="bi bi-instagram"></i></button></a>
+						<a href=""><button class="icon"><i class="bi bi-whatsapp"></i></button></a>	
+					</div>
+				</div>
+
+			</div>
+
+			<div id="contactUs">
+				<p>
+					Interested in our collection? Share your details below and we’ll help you find exactly what you need.
+				</p>
+				<form id="contactForm">
+					<input type="text" name="name" placeholder="Name" required />
+					<input type="tel"  name="phone"    placeholder="Phone" required />
+					<input type="email" name="email" placeholder="Email (optional)" />
+					<textarea name="message" placeholder="Message" required></textarea>
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+
+			<div id="footer">
+				© Axom Decor Thread. 2026 All Rights Reserved.
+			</div>
+			
+
+		</div>
+
+		
+
+		<script>
+			document.getElementById("contactForm").addEventListener("submit", async function (e) {
+				e.preventDefault();
+
+				const formData = {
+					name:    this.name.value,
+					phone:   this.phone.value,
+					email:   this.email.value,
+					message: this.message.value
+				};
+
+				const response = await fetch("https://script.google.com/macros/s/AKfycbwCxnF82NOS8s7atx_2HsEdbTSiyu2P4OVaXWjp0vkI2BnAD6SXJXqzvf3CKVVs3jF9/exec", {
+					method: "POST",
+					body: JSON.stringify(formData)
+					});
+
+				const result = await response.json();
+				if (result.result === "success") alert("Submitted!");
+			});
+		</script>
+			
+	</body>
+</html>
