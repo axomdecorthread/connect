@@ -61,6 +61,12 @@
 				</form>
 			</div>
 
+			<div id="contactFormSubmitted" style="display: none;">
+				<p>
+					Thank you for reaching out. We will get back to you soon!
+				</p>
+			</div>
+
 			<div id="footer">
 				© Axom Decor Thread. 2026 All Rights Reserved.
 			</div>
@@ -73,6 +79,10 @@
 		<script>
 			document.getElementById("contactForm").addEventListener("submit", async function (e) {
 				e.preventDefault();
+
+				const formBtn = document.getElementById("contactUs").querySelector("button");
+				formBtn.disabled = true;
+				formBtn.innerText = "Submitting...";
 
 				const formData = {
 					name:    this.name.value,
@@ -87,7 +97,11 @@
 					});
 
 				const result = await response.json();
-				if (result.result === "success") alert("Submitted!");
+				if (result.result === "success") {
+					alert("Submitted!");
+					document.getElementById("contactUs").style.display = "none";
+					document.getElementById("contactFormSubmitted").style.display = "block";
+				}
 			});
 
 
