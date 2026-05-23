@@ -5,6 +5,11 @@
 	--font-sans: "Lato", sans-serif;
 	--font-serif: "Playfair Display", serif;
 	--img-01: url("res/img/hero-bg-01.jpg");
+
+	--pure-white: #ffffff;
+	--dark: #040404;
+
+
 }
 
 
@@ -45,7 +50,7 @@
 #banner button {
 	background: transparent;
 	border: none;
-	color: white;
+	color: var(--pure-white);
 }
 
 #header {
@@ -60,7 +65,7 @@
 	font-family: var(--font-serif);
 	font-size: 34px;
 	font-weight: 600;
-	color: white;
+	color: var(--pure-white);
 
 }
 
@@ -70,7 +75,7 @@
 	font-family: var(--font-serif);
 	font-size: 14px;
 	font-weight: 400;
-	color: white;
+	color: var(--pure-white);
 }
 
 #socials {
@@ -119,7 +124,7 @@
 	font-family: var(--font-sans);
 	font-weight: 400;
 	font-size: 16px;
-	color: white;
+	color: var(--pure-white);
 }
 
 #contactUs p {
@@ -136,9 +141,9 @@
 }
 
 #contactForm button {
-	background: black;
+	background: var(--dark);
 	border: none;
-	color: white;
+	color: var(--pure-white);
 	border-radius: 999px;
 }
 
