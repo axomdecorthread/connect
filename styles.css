@@ -198,6 +198,13 @@ p {
 	text-align: center;
 }
 
+#footer .tos {
+	font-size: 12px;
+	margin: 20px 0;
+}
 
 
+.grecaptcha-badge {
+	visibility: hidden;
+}
 
