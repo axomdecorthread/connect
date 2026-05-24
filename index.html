@@ -4,8 +4,16 @@
 	<head>
 		<meta charset="utf-8"/>
 		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-		<script src="https://www.google.com/recaptcha/api.js?render=6Lf7EfosAAAAADZTQebvDVUdbJK18c0MDDZyDjQt"></script>
+
+		<script>
+			const RECAPTCHA_SITE_KEY = "6Lf7EfosAAAAADZTQebvDVUdbJK18c0MDDZyDjQt";
+			const script = document.createElement("script");
+			script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+			document.head.appendChild(script);
+		</script>
+		
 		<title>Axom Decor Thread</title>
+		
 		<link rel="stylesheet" href="styles.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	</head>
@@ -13,7 +21,6 @@
 	<body>
 
 		<div id="view">
-
 			<div id="banner">
 				<div id="header">
 					<h1>Axom Decor Thread</h1>
@@ -29,18 +36,22 @@
 							Download Brochure
 						</button>
 					</a>
-					<a href="">
-						<button id="copyEmail" class="cta">
-							<i class="bi bi-copy"></i>
-							info@axomdecorthread.in
-						</button>
-					</a>
+					
+					<button id="copyEmail" class="cta">
+						<i class="bi bi-copy"></i>
+						info@axomdecorthread.in
+					</button>
 				</div>
 
 				<div id="socials">
 					<div class="icons">
-						<a href="https://www.instagram.com/axomdecorthread/" target="_blank"><button class="icon"><i class="bi bi-instagram"></i></button></a>
-						<a href="https://wa.me/919825098562" target="_blank"><button class="icon"><i class="bi bi-whatsapp"></i></button></a>	
+						<a href="https://www.instagram.com/axomdecorthread/" target="_blank" rel="noopener noreferrer">
+							<button class="icon"><i class="bi bi-instagram"></i></button>
+						</a>
+						
+						<a href="https://wa.me/919825098562" target="_blank" rel="noopener noreferrer">
+							<button class="icon"><i class="bi bi-whatsapp"></i></button>
+						</a>	
 					</div>
 				</div>
 
@@ -52,7 +63,7 @@
 				</p>
 				<form id="contactForm">
 					<input type="text" name="name" placeholder="Name" required />
-					<input type="tel"  name="phone"    placeholder="Phone" required />
+					<input type="tel"  name="phone" placeholder="Phone"  pattern="[0-9+\-\s]{7,15}" required />
 					<input type="email" name="email" placeholder="Email (optional)" />
 					<textarea name="message" placeholder="Message" required></textarea>
 					<button type="submit">
@@ -94,7 +105,7 @@
 				formBtn.innerText = "Submitting...";
 
 				try {
-					const token = await grecaptcha.execute("6Lf7EfosAAAAADZTQebvDVUdbJK18c0MDDZyDjQt", { action: "contact_form" });
+					const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "contact_form" });
 					
 					const formData = {
 						name:    this.name.value,
@@ -112,7 +123,6 @@
 					const result = await response.json();
 					
 					if (result.result === "success") {
-						alert("Submitted!");
 						document.getElementById("contactUs").style.display = "none";
 						document.getElementById("contactFormSubmitted").style.display = "block";
 					} else {
@@ -122,10 +132,12 @@
 					alert("Something went wrong. Please try again.");
 				} finally {
 					formBtn.disabled = false;
+					formBtn.innerHTML = 'Send Message <i class="bi bi-send"></i>';
 				}
 			});
+		</script>
 
-
+		<script>
 			const text = document.getElementById("copyEmail");
 
 			text.addEventListener("click", async () => {
@@ -133,7 +145,7 @@
 					await navigator.clipboard.writeText(
 						text.textContent.trim()
 					);
-
+			
 					alert("Email copied!");
 				
 				} catch(err) {
@@ -141,7 +153,6 @@
 					alert("Copy failed");
 				}
 			});
-
 		</script>
 			
 	</body>
