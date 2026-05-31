@@ -8,6 +8,7 @@
 
 	--pure-white: #ffffff;
 	--dark: #1a1a1a;
+	--gray-dark: #494949;
 	--heritage-maroon: #7A1E2C;
 	--artisan-gold: #C9A25D;
 	--soft-sand: #E9E2D6;
@@ -21,11 +22,20 @@
 	margin: 0;
 }
 
+body {
+	overscroll-behavior-y: none
+}
+
 input {
 	width: 100%;
 	font-family: var(--font-sans);
 	font-weight: 400;
 	font-size: 16px;
+	color: var(--dark);
+}
+
+input::placeholder {
+	color:var(--gray-dark);
 }
 
 textarea {
@@ -35,6 +45,11 @@ textarea {
 	font-family: var(--font-sans);
 	font-weight: 400;
 	font-size: 16px;
+	color: var(--dark);
+}
+
+textarea::placeholder {
+	color:var(--gray-dark);
 }
 
 button {
@@ -344,7 +359,7 @@ a.wide-button {
 .tos {
 	font-size: 12px;
 	font-weight: 400;
-	color: var(--dark);
+	color: var(--gray-dark);
 }
 
 .tos a {
