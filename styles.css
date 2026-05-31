@@ -9,10 +9,10 @@
 
 	--pure-white: #ffffff;
 	--dark: #1a1a1a;
+	--adt-blue: #000086;
 
 	--wid1: 360px;
 	--wid2: 740px;
-
 
 }
 
@@ -42,7 +42,9 @@ textArea {
 
 button {
 	width: 100%;
+	max-width: var(--wid1);
 	height: 36px;
+	margin: 0 auto;
 
 	display: flex;
 	justify-content: center;
@@ -53,17 +55,19 @@ button {
 	font-weight: 500;
 	font-size: 16px;
 
+	border: none;
+	border-radius: 999px;
+
 	cursor: pointer;
 }
 
 button:disabled {
-	opacity: 0.5;
 	cursor: not-allowed;
 }
 
 section {
 	margin-top: 40px;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 }
 
 
@@ -114,9 +118,9 @@ p {
 	background:
 		linear-gradient(
 			0deg,
-			rgba(0, 0, 0, 0.0) 0%,
-			rgba(0, 0, 0, 0.0) 50%,
-			rgba(0, 0, 0, 0.0) 100%
+			rgba(0, 0, 0, 0.5) 0%,
+			rgba(0, 0, 0, 0.0) 70%,
+			rgba(0, 0, 0, 0.5) 100%
 		),
 		var(--img-01);
 
@@ -129,6 +133,12 @@ p {
 	background: transparent;
 	border: none;
 	color: var(--pure-white);
+	transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+#banner button:hover {
+	color: var(--dark);
+	background-color: var(--pure-white);
 }
 
 #header {
@@ -164,12 +174,12 @@ p {
 }
 
 #socials .icons .icon {
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
 }
 
 #socials .icons .icon i {
-	font-size: 36px;
+	font-size: 32px;
 }
 
 #socials .cta {
@@ -199,9 +209,13 @@ p {
 
 #contactForm button {
 	background: var(--dark);
-	border: none;
 	color: var(--pure-white);
-	border-radius: 999px;
+	opacity: 100%;
+	transition: opacity 0.2s ease;
+}
+
+#contactForm button:hover {
+	opacity: 80%;
 }
 
 #contactFormSubmitted p {
@@ -221,10 +235,6 @@ p {
 
 .grecaptcha-badge {
 	visibility: hidden;
-}
-
-#philosophy {
-	
 }
 
 #productsSnapshot {
@@ -250,7 +260,6 @@ p {
 	opacity: 1;
 }
 
-
 .ticker {
 	position: relative;
 	width: 100%;
@@ -273,8 +282,6 @@ p {
 .ticker-item:nth-child(2) {
 	animation: second-text 6s ease-out infinite;
 }
-
-
 
 @keyframes first-text {
 	0%   { opacity: 0; }
@@ -299,10 +306,16 @@ p {
 .tos {
 	font-size: 12px;
 	font-weight: 400;
+	color: var(--dark);
 }
 
 .tos a {
 	font-weight: 700;
+	color: var(--adt-blue);
+}
+
+.tos a:hover {
+	text-decoration: underline;
 }
 
 .brand-name {
